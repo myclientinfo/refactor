@@ -1,0 +1,22 @@
+
+.dropdown:hover ul {
+    display: block;
+}
+
+.dropdown ul {
+    top: 35px;
+}
+
+#search_form {
+    padding: 10px;
+}
+
+.rating {
+    background-color: #bf5a16;
+    border-radius: 10px;
+    font-size: 20px;
+    float: right;
+    padding: 15px;
+    margin-left: 20px;
+
+}
