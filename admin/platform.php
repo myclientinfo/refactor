@@ -6,26 +6,25 @@ include_once '../header.php';
 if(!empty($_POST)){
 
     if($_POST['id']) {
-        $query = 'UPDATE genres SET
+        $query = 'UPDATE platforms SET
                     name = "' . mysql_real_escape_string($_POST['name']) . '"
                         WHERE id = ' . mysql_real_escape_string($_POST['id']);
 
         mysql_query($query);
 
     } else {
-        $query = 'INSERT INTO genres(name) VALUES(
+        $query = 'INSERT INTO platforms(name) VALUES(
                         "' . mysql_real_escape_string($_POST['name']) . '"';
 
         $id = mysql_query($query);
 
-        header('location:genre.php?id='.$id);
+        header('location:platform.php?id='.$id);
     }
 
 }
 ?>
 
-    <h2>Edit Genre</h2>
-
+    <h2>Edit Platform</h2>
 
     <div class="row">
 
@@ -34,8 +33,8 @@ if(!empty($_POST)){
             <div class="list-group">
                 <a href="index.php" class="list-group-item">Admin Home</a>
                 <a href="content_list.php" class="list-group-item">Content</a>
-                <a href="genres_list.php" class="list-group-item active">Genres</a>
-                <a href="platforms_list.php" class="list-group-item">Platforms</a>
+                <a href="genres_list.php" class="list-group-item">Genres</a>
+                <a href="platforms_list.php" class="list-group-item active">Platforms</a>
             </div>
 
         </div>
@@ -43,7 +42,8 @@ if(!empty($_POST)){
         <div class="col-lg-8">
 
             <?php
-            $query = 'SELECT * FROM genres WHERE id = '.$_GET['id'];
+            $query = 'SELECT * FROM platform WHERE id = '.$_GET['id'];
+
             $result = mysql_query($query);
 
             while ($row = mysql_fetch_assoc($result)) {
@@ -52,7 +52,7 @@ if(!empty($_POST)){
                 <div class="panel">
                     <form class="form-horizontal" id="content_form" method="post">
                         <div class="form-group">
-                            <label for="name" class="col-lg-2 control-label">Name</label>
+                            <label for="name" class="col-lg-2 control-label">Title</label>
 
                             <div class="col-lg-10">
                                 <input type="text" value="<?php echo $row['name'] ?>" class="form-control" id="name" name="name" placeholder="">

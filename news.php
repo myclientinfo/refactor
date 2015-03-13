@@ -10,11 +10,9 @@ $query = 'SELECT c.*, g.name as genre, p.name as platform , t.name as type FROM 
               AND c.id = '.$_GET['id'];
 
 $result = mysql_query($query);
+
+while ($row = mysql_fetch_assoc($result)) {
 ?>
-
-
-
-<?php while ($row = mysql_fetch_assoc($result)) {?>
 
     <h2>News - <?php echo $row['title'] ?></h2>
 

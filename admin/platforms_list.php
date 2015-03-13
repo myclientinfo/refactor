@@ -2,11 +2,11 @@
 include_once '../header.php';
 include_once '../config.php';
 
-$query = 'SELECT * FROM genres ORDER BY id';
+$query = 'SELECT * FROM platforms ORDER BY id';
 
 $result = mysql_query($query);
 ?>
-    <h2>All Genres</h2>
+    <h2>All Platforms</h2>
 
     <div class="row">
 
@@ -15,8 +15,8 @@ $result = mysql_query($query);
             <div class="list-group">
                 <a href="index.php" class="list-group-item">Admin Home</a>
                 <a href="content_list.php" class="list-group-item">Content</a>
-                <a href="genres_list.php" class="list-group-item active">Genres</a>
-                <a href="platforms_list.php" class="list-group-item">Platforms</a>
+                <a href="genres_list.php" class="list-group-item">Genres</a>
+                <a href="platforms_list.php" class="list-group-item active">Platforms</a>
             </div>
 
         </div>
@@ -27,9 +27,9 @@ $result = mysql_query($query);
                 <?php while ($row = mysql_fetch_assoc($result)) {?>
 
                     <tr>
-                        <td><a href="genre.php?id=<?php echo $row['id'] ?>"><?php echo $row['name'] ?></a></td>
+                        <td><a href="platform.php?id=<?php echo $row['id'] ?>"><?php echo $row['name'] ?></a></td>
                         <td></td>
-                        <td><a href="genre.php?id=<?php echo $row['id'] ?>">Edit</a></td>
+                        <td><a href="platform.php?id=<?php echo $row['id'] ?>">Edit</a></td>
                     </tr>
 
                 <?php } ?>
